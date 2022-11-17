@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App, { Field } from './App';
-import './index.css';
+import { Provider } from 'react-redux';
+import { combineReducers } from 'redux';
+import App from './App'; 
+import { configureStore } from '@reduxjs/toolkit';
+import todos from './reducers/todos';
+import visibilityFilter from './reducers/visibilityFilter';
 
-
+const store = configureStore ({reducer: {todos: todos, visibilityFilter: visibilityFilter}});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
-  <Field />,
-    <App />,
-  </>
-  
+  <Provider store = {store}>
+    <App />
+  </Provider>
 );
