@@ -15,9 +15,23 @@ const todos = (state = [], action) => {
             ? {...todo, completed: !todo.completed}
             : todo
         )
+      case 'REMOVE_TODO': 
+          return [
+            state.length =0,
+            // removeTodoList(),
+            {
+              id: action.id
+            }
+          ]
       default:
         return state
     }
   }
   
   export default todos
+
+  // function removeTodoList() {
+  //   let elem = document.getElementById('ulId');
+  //   elem.parentNode.removeChild(elem);
+  //   elem.parentNode.appendChild(elem);
+  // }

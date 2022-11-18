@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addTodo, removeTodo } from '../actions'
 
 const AddTodo = ({ dispatch }) => {
   let input
@@ -18,6 +18,15 @@ const AddTodo = ({ dispatch }) => {
         <input ref={node => input = node} />
         <button type="submit">
           Add Todo
+        </button>
+      </form>
+
+      <form onSubmit={e => {
+        e.preventDefault()
+        dispatch(removeTodo(removeTodo.id))
+      }}>
+        <button type="submit">
+          Remove Todo
         </button>
       </form>
     </div>
